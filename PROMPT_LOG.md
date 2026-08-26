@@ -1,4 +1,4 @@
-Prompt 1
+## Prompt 1
 
 Task: Building the Personal Portfolio Website from Scratch
 
