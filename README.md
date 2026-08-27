@@ -1,244 +1,594 @@
-# Dimple Portfolio — Personal Portfolio Website
+# 💙 Dimple Portfolio
 
-A personal portfolio website built with **Laravel** and **Blade**, showcasing the profile, education, projects, skills, and contact details of **Dimple Kate B. Bodonia**.
+> A modern personal portfolio website built with **Laravel** and **Blade**, designed to showcase Dimple Kate B. Bodonia's profile, education, certifications, projects, skills, and contact information.
 
-## Project Overview
+---
 
-This is a static, single-page personal portfolio developed using the Laravel PHP framework and its Blade templating engine. The site presents a personal introduction, educational background, professional certifications, featured projects, and contact information in a single scrollable page.
+## ✨ Project Overview
 
-The portfolio is designed from scratch with a custom black-and-blue gradient visual style. It does not rely on a database for its content — all portfolio information is stored directly inside the Blade view files.
+**Dimple Portfolio** is a static, single-page personal portfolio website developed using the **Laravel PHP framework** and **Blade templating engine**.
 
-## Portfolio Sections
+The website presents:
 
-The website is a one-page layout organized into the following sections, all rendered on `resources/views/home.blade.php`:
+* 👋 Personal introduction
+* 🎓 Educational background
+* 📜 Professional certification
+* 💻 Featured projects
+* 🛠️ Technical skills
+* 📩 Contact information
+* 🔗 Social media links
 
-- **Home / Hero** — Greeting, name, short introduction, profile image, and call-to-action buttons.
-- **About Me** — Personal introduction, biography paragraphs, a skills tag cloud, and a small stats row.
-- **Education & Certifications** — A two-column layout with an education timeline on the left and a certification card on the right.
-- **Projects** — Two project cards highlighting featured work with images, descriptions, and the technologies used.
-- **Contact** — Contact details (email, phone, location, GitHub) plus a call-to-action and social media links.
-- **Footer** — Portfolio branding, quick links, contact summary, social links, and a copyright line.
+The portfolio was designed **from scratch** with a custom **black-and-blue gradient visual identity**.
 
-## Design and UI
+> **Note:** The website does not use a database for portfolio content. All information is written directly inside the Blade views.
 
-The design is an original custom creation and not based on a template. The visual style is dark-themed with blue accents:
+---
 
-- **Black + blue gradient theme**, with a near-black background (`#06060e`) and blue accent colors (`#00b4ff`, `#0066ff`).
-- **Blue gradient** elements used for titles, buttons, section headings, and decorative lines.
-- **Blue glow effects** (`box-shadow`) applied to buttons, cards, badges, and timeline dots.
-- **Modern cards** with rounded corners, subtle borders, and card hover states.
-- **Responsive layout** that adapts across tablets and mobile devices.
-- **Hover effects** on buttons, project cards, skill tags, stat cards, timeline cards, and social icons.
-- **Smooth transitions** driven by a shared easing curve (`cubic-bezier`), plus a slow 20-second rotating hero ring animation.
-- **Slightly futuristic visual style** reinforced by a background grid pattern, blurred glow orbs, a pulsing status dot, and a spinning decorative ring around the hero image.
+## 🎨 Design & UI
 
-Fonts: **Inter** for body text and **JetBrains Mono** for accents, loaded via Google Fonts.
+The portfolio uses a modern, dark, and slightly futuristic visual style.
 
-## Navigation
+### Main Design Features
 
-The site includes a **fixed (sticky) navigation bar** that stays at the top and gains a shadow when scrolled (`resources/views/components/navbar.blade.php`):
+* 🌑 Near-black background — `#06060e`
+* 🔵 Blue gradient accents — `#00b4ff` and `#0066ff`
+* ✨ Blue glow effects
+* 🃏 Modern rounded cards
+* 🎯 Interactive hover effects
+* 📱 Fully responsive layout
+* 🌐 Background grid pattern
+* 💫 Decorative glow orbs
+* 🔄 Animated hero ring
+* ⚡ Smooth page transitions
+* 🔘 Pulsing availability indicator
 
-- A **portfolio name/logo** (`Dimple Portfolio`, with a gradient-accented suffix).
-- Links to **Home, About, Education, Projects, and Contact**.
-- The active section's link is highlighted automatically as the user scrolls.
-- A **mobile hamburger menu** that slides in a full-height panel with an overlay on small screens.
-- An **accent color control** button that opens a dropdown of color swatches.
-- A **dark / light mode toggle** button.
+### Typography
 
-### Theme & Mode Customization
+* **Inter** — Primary body font
+* **JetBrains Mono** — Accent and technical text
 
-The selected accent color and light/dark mode are preserved across visits using the browser's **localStorage**. The JavaScript in `resources/js/app.js` saves:
+Both fonts are loaded through Google Fonts.
 
-- The chosen accent theme under the key `portfolio-theme` (options: `blue`, `purple`, `emerald`, `rose`, `amber`; `blue` is the default).
-- The light/dark mode under the key `portfolio-mode` (`dark` by default).
+---
 
-## Home / Hero Section
+## 🧭 Navigation
 
-The hero section (`id="home"`) includes:
+The website includes a fixed navigation bar located at:
 
-- A **greeting** ("Hi, I'm") followed by the owner's full name in gradient text: **Dimple Kate B. Bodonia**.
-- An **availability badge** ("Available for opportunities") with a pulsing dot.
-- A **short introduction** describing the owner as an Information Technology student creating modern web applications.
-- A circular **profile image** (`public/images/profile.jpg`) framed by a spinning gradient ring and a dotted background.
-- A **primary CTA** button labeled **"View My Projects"** (links to the Projects section).
-- A **secondary CTA** button labeled **"Contact Me"** (links to the Contact section).
-- **Decorative visual elements** including two blurred glow orbs and a background grid pattern.
+`resources/views/components/navbar.blade.php`
 
-## About Section
+### Navigation Features
 
-The about section (`id="about"`) features:
+* **Dimple Portfolio** logo
+* Home
+* About
+* Education
+* Projects
+* Contact
+* Active section detection
+* Mobile hamburger menu
+* Accent color selector
+* Dark/light mode toggle
 
-- A **profile image** displayed in a bordered, rounded card.
-- A heading ("Student & Aspiring Developer") and **biography paragraphs** about the owner's journey and learning philosophy in Information Technology.
-- A **skills tag cloud** listing technologies: HTML5, CSS3, JavaScript, PHP, Laravel, MySQL, Git, React, Node.js, Tailwind CSS, and Blade.
-- A **statistics row** with two stat cards: **2 Projects** and **1 Certification**.
+The navigation automatically highlights the section currently visible while scrolling.
 
-## Education Section
+---
 
-The Education section (`id="education"`) was implemented as a **two-column layout** containing an education timeline and a certificate card:
+## 🎨 Theme Customization
 
-- **Left column — Education timeline** with two entries (via `.edu-timeline`):
-  - **Data Center College of the Philippines** — Bachelor of Science in Information Technology, **2023 – Present**.
-  - **Abra High School** — GAS Strand (General Academic Strand), **2021 – 2023**.
-- A decorative **divider** separates the two columns.
-- **Right column — Certification card** for the certificate **"ONLINE SAFETY THROUGH NETIQUETTE"** issued by **DICT**, dated **2026**, with a description and a **"View Certificate"** button linking to an external Google Drive file.
+The portfolio supports both **accent color customization** and **dark/light mode**.
 
-## Projects Section
+User preferences are stored using browser `localStorage`.
 
-The projects section (`id="projects"`) displays two project cards, each with an image, title, description, and technology tags:
+### Accent Themes
 
-1. **Kusina ni Mama Reservation System** — A desktop-based restaurant reservation application built with **Microsoft Visual Studio** (WinForms) and **MySQL**. Image: `public/images/Kusina.png`.
-2. **Vehicle Parking Monitoring System** — Parking operations software that manages vehicle entries, parking slots, customer records, and transactions, built with **Microsoft Visual Studio** and **MySQL**. Image: `public/images/parking.jpg`.
+| Theme      | Key       |
+| ---------- | --------- |
+| 🔵 Blue    | `blue`    |
+| 🟣 Purple  | `purple`  |
+| 🟢 Emerald | `emerald` |
+| 🌹 Rose    | `rose`    |
+| 🟠 Amber   | `amber`   |
 
-Note: The project cards include images, titles, descriptions, and technology tags, but do **not** include external project or GitHub repository links.
+The default accent theme is **Blue**.
 
-## Contact Section
+### Display Modes
 
-The contact section (`id="contact"`) is a static contact area (no database-backed form) that provides:
+* 🌙 Dark mode — default
+* ☀️ Light mode
 
-- **Email** — `kbbersalona@gmail.com` (as a `mailto:` link).
-- **Phone** — `+63 995 524 3015` (as a `tel:` link).
-- **Location** — Zone 1, Bangued Abra.
-- **GitHub** — a link to `github.com/DimpleBodonia`.
-- A **call-to-action panel** titled "Let's Build Something Great" with a **"Send Me an Email"** button (a `mailto:` link).
-- **Social media links** via icon buttons: **GitHub**, **Facebook**, and **Discord**.
-
-## Technologies Used
-
-Based on the actual project files:
-
-- **Laravel** (v13.x, `laravel/framework ^13.17`) — the application framework.
-- **PHP** (^8.3) — the server-side language.
-- **Blade** — Laravel's templating engine for the views.
-- **HTML** — view markup.
-- **CSS** — custom stylesheet (`resources/css/app.css`).
-- **JavaScript** — custom behavior (`resources/js/app.js`).
-- **Vite** — the frontend build tool (`vite.config.js`).
-- **Tailwind CSS** — listed as a Vite plugin dependency (`@tailwindcss/vite`).
-- **SQLite** — configured as the default database connection in `.env`, though the portfolio itself does not store content in a database.
-
-Other PHP packages installed (from `composer.json`): `laravel/tinker` (runtime) and standard development packages such as PHPUnit, Laravel Pint, Mockery, Collision, Laravel Pail, and Laravel Pao (dev dependencies only).
-
-## Project Structure
-
-The important directories and files used by this portfolio:
+Preferences are stored using:
 
 ```text
-routes/
-└── web.php                      # Single route rendering the home view
-
-resources/
-├── views/
-│   ├── layouts/
-│   │   └── app.blade.php        # Base layout (head, theme attrs, asset links)
-│   ├── components/
-│   │   ├── navbar.blade.php     # Fixed navigation bar
-│   │   └── footer.blade.php     # Page footer
-│   ├── home.blade.php           # Main portfolio content (all sections)
-│   └── welcome.blade.php        # Default Laravel welcome view (unused by the site)
-├── css/
-│   └── app.css                  # Custom portfolio stylesheet
-└── js/
-    └── app.js                   # Theme/mode, menu, and interaction logic
-
-public/
-├── images/
-│   ├── profile.jpg              # Hero & About profile image
-│   ├── Kusina.png               # Project 1 image
-│   └── parking.jpg              # Project 2 image
-├── css/app.css                  # Built stylesheet referenced by the layout
-└── js/app.js                    # Built script referenced by the layout
-
-vite.config.js                   # Vite build configuration
-composer.json                    # PHP dependencies
-package.json                     # Node/npm dependencies
+portfolio-theme
+portfolio-mode
 ```
 
-## Data and Architecture
+---
 
-The portfolio is architected as a **static website**:
+# 🏠 Portfolio Sections
 
-- A single route in `routes/web.php` returns the `home` view with a page title.
-- All portfolio content (personal info, bio, education, certificate, projects, skills, contact, social links) is written **directly in the Blade view** (`resources/views/home.blade.php`) — no database lookups are involved.
-- The site does **not** use Eloquent models or migrations for portfolio content, and there is **no authentication**.
-- Laravel's default migrations and the configured SQLite connection exist as part of the framework skeleton but are not used to store portfolio data.
-- Rendering is handled entirely by the **Blade templating engine**, with custom **CSS** for styling and custom **JavaScript** for interactivity.
+## 👋 Home / Hero
 
-## Installation
+The hero section introduces the portfolio owner.
 
-These steps only require dependencies for the static portfolio and require no database configuration.
+### Includes
+
+* Greeting — **"Hi, I'm"**
+* Full name — **Dimple Kate B. Bodonia**
+* Availability badge
+* Short introduction
+* Profile image
+* Animated gradient ring
+* Background grid
+* Decorative glow effects
+* **View My Projects** CTA
+* **Contact Me** CTA
+
+Profile image:
+
+```text
+public/images/profile.jpg
+```
+
+---
+
+## 👩‍💻 About Me
+
+The About section contains:
+
+* Profile image
+* Personal biography
+* Learning journey
+* Skills tag cloud
+* Portfolio statistics
+
+### Skills
+
+* HTML5
+* CSS3
+* JavaScript
+* PHP
+* Laravel
+* MySQL
+* Git
+* React
+* Node.js
+* Tailwind CSS
+* Blade
+
+### Statistics
+
+| Statistic      | Value |
+| -------------- | ----: |
+| Projects       |     2 |
+| Certifications |     1 |
+
+---
+
+## 🎓 Education & Certifications
+
+The Education section uses a two-column layout.
+
+### Education Timeline
+
+**Data Center College of the Philippines**
+
+> Bachelor of Science in Information Technology
+> **2023 – Present**
+
+**Abra High School**
+
+> GAS Strand — General Academic Strand
+> **2021 – 2023**
+
+### Certification
+
+**ONLINE SAFETY THROUGH NETIQUETTE**
+
+* Issued by: **DICT**
+* Year: **2026**
+* Includes a **View Certificate** button
+* Certificate is hosted through an external Google Drive file
+
+---
+
+# 💻 Projects
+
+The Projects section currently contains two featured projects.
+
+### 01 — Kusina ni Mama Reservation System
+
+A desktop-based restaurant reservation application developed using:
+
+* Microsoft Visual Studio
+* Windows Forms
+* MySQL
+
+Project image:
+
+```text
+public/images/Kusina.png
+```
+
+---
+
+### 02 — Vehicle Parking Monitoring System
+
+A parking management application designed to manage:
+
+* Vehicle entries
+* Parking slots
+* Customer records
+* Transactions
+
+Built using:
+
+* Microsoft Visual Studio
+* MySQL
+
+Project image:
+
+```text
+public/images/parking.jpg
+```
+
+> **Note:** Project cards currently contain project information and images but do not include external project or GitHub repository links.
+
+---
+
+# 📩 Contact
+
+The Contact section provides static contact information.
+
+| Information | Details                    |
+| ----------- | -------------------------- |
+| 📧 Email    | `kbbersalona@gmail.com`    |
+| 📱 Phone    | `+63 995 524 3015`         |
+| 📍 Location | Zone 1, Bangued Abra       |
+| 💻 GitHub   | `github.com/DimpleBodonia` |
+
+### Call to Action
+
+The section also includes:
+
+> **Let's Build Something Great**
+
+with a **Send Me an Email** button.
+
+### Social Links
+
+* GitHub
+* Facebook
+* Discord
+
+---
+
+# 🛠️ Technologies Used
+
+| Technology       | Purpose                                |
+| ---------------- | -------------------------------------- |
+| **Laravel 13.x** | Application framework                  |
+| **PHP 8.3+**     | Backend language                       |
+| **Blade**        | Templating engine                      |
+| **HTML5**        | Page structure                         |
+| **CSS3**         | Custom styling                         |
+| **JavaScript**   | Interactivity                          |
+| **Vite**         | Frontend build tool                    |
+| **Tailwind CSS** | Vite plugin dependency                 |
+| **SQLite**       | Default Laravel database configuration |
+
+### Additional Packages
+
+The project also includes Laravel's standard development tools and packages such as:
+
+* Laravel Tinker
+* PHPUnit
+* Laravel Pint
+* Mockery
+* Collision
+* Laravel Pail
+* Laravel Pao
+
+These packages are not required for storing portfolio content.
+
+---
+
+# 📁 Project Structure
+
+```text
+Dimple-Portfolio/
+│
+├── routes/
+│   └── web.php
+│
+├── resources/
+│   ├── views/
+│   │   ├── layouts/
+│   │   │   └── app.blade.php
+│   │   │
+│   │   ├── components/
+│   │   │   ├── navbar.blade.php
+│   │   │   └── footer.blade.php
+│   │   │
+│   │   ├── home.blade.php
+│   │   └── welcome.blade.php
+│   │
+│   ├── css/
+│   │   └── app.css
+│   │
+│   └── js/
+│       └── app.js
+│
+├── public/
+│   ├── images/
+│   │   ├── profile.jpg
+│   │   ├── Kusina.png
+│   │   └── parking.jpg
+│   │
+│   ├── css/
+│   │   └── app.css
+│   │
+│   └── js/
+│       └── app.js
+│
+├── vite.config.js
+├── composer.json
+└── package.json
+```
+
+---
+
+# 🏗️ Architecture
+
+The portfolio follows a **static Laravel architecture**.
+
+### Routing
+
+A single route in:
+
+```text
+routes/web.php
+```
+
+renders the main portfolio page.
+
+### Views
+
+The primary content is located in:
+
+```text
+resources/views/home.blade.php
+```
+
+Reusable components are separated into:
+
+```text
+resources/views/components/
+```
+
+### Data
+
+Portfolio information is hardcoded directly into the Blade views.
+
+The project does **not** use:
+
+* ❌ Database queries
+* ❌ Eloquent models
+* ❌ Migrations for portfolio content
+* ❌ Authentication
+* ❌ Admin dashboard
+* ❌ Backend content management
+
+Laravel's default database configuration may still exist as part of the standard Laravel project structure, but it is **not used for portfolio content**.
+
+---
+
+# ⚙️ Installation
+
+### 1. Install PHP dependencies
 
 ```bash
-# 1. Install PHP dependencies
 composer install
-
-# 2. Create the environment file (if missing) and generate an app key
-cp .env.example .env   # Windows: copy .env.example .env
-php artisan key:generate
-
-# 3. Install Node dependencies and build frontend assets
-npm install
-npm run build
-
-# 4. Serve the application locally
-php artisan serve
 ```
 
-No `DB_*` configuration is required because the portfolio does not store content in a database.
+### 2. Create the environment file
 
-## Running the Project
+```bash
+cp .env.example .env
+```
 
-Start Laravel's built-in development server:
+For Windows:
+
+```cmd
+copy .env.example .env
+```
+
+### 3. Generate the application key
+
+```bash
+php artisan key:generate
+```
+
+### 4. Install frontend dependencies
+
+```bash
+npm install
+```
+
+### 5. Build frontend assets
+
+```bash
+npm run build
+```
+
+### 6. Start Laravel
 
 ```bash
 php artisan serve
 ```
 
-Then open your browser and visit **http://localhost:8000** (as configured by `APP_URL` in `.env`).
+Then open:
 
-Alternatively, because this is a standard Laravel application, it can also be served through a web server such as **XAMPP/Apache** pointed at the `public/` directory.
+```text
+http://localhost:8000
+```
 
-## Customization
+> No database configuration is required for the portfolio content.
 
-All portfolio content is edited directly in the Blade view files:
+---
 
-- **Name, introduction, hero text, CTA labels** — `resources/views/home.blade.php` (Hero section).
-- **About Me / biography** — About section of `resources/views/home.blade.php`.
-- **Skills** — `.skills-grid` in the About section of `resources/views/home.blade.php`.
-- **Statistics** — `.stats-row` in the About section of `resources/views/home.blade.php`.
-- **Education** — `.edu-timeline` in the Education section of `resources/views/home.blade.php`.
-- **Certificates** — `.cert-card` in the Education section of `resources/views/home.blade.php`.
-- **Projects** — `.project-card` blocks in the Projects section of `resources/views/home.blade.php`.
-- **Contact details and social links** — `.contact-grid` in the Contact section of `resources/views/home.blade.php`.
-- **Footer links, contact summary, and social links** — `resources/views/components/footer.blade.php`.
-- **Navigation links and logo** — `resources/views/components/navbar.blade.php`.
-- **Images** — replace files in `public/images/` (e.g., `profile.jpg`, `Kusina.png`, `parking.jpg`), keeping the same filenames or updating the `asset()` paths.
-- **Theme / colors / styling** — CSS variables in `resources/css/app.css` (then rebuild with `npm run build`).
+# 🚀 Running the Project
 
-## Responsive Design
+Start the Laravel development server:
 
-The stylesheet includes dedicated responsive breakpoints:
+```bash
+php artisan serve
+```
 
-- **`max-width: 992px`** (tablets) — hero, about, education, projects, and contact layouts collapse to single columns.
-- **`max-width: 768px`** (mobile phones) — the navigation switches to a **hamburger menu** with a slide-in panel and backdrop overlay.
+Then visit:
 
-The layout uses fluid sizing (`clamp()`), a mobile-friendly navigation, and stacks columns on smaller screens, so it supports mobile phones, tablets, laptops, and desktop monitors.
+```text
+http://localhost:8000
+```
 
-## Animations and Interactions
+The project can also be deployed using a standard Apache/XAMPP environment by pointing the web server to the Laravel:
 
-Implemented in `resources/js/app.js` and `resources/css/app.css`:
+```text
+/public
+```
 
-- **Smooth scrolling** via CSS `scroll-behavior: smooth`.
-- **Dark / light mode toggle** and **accent color switcher** with a dropdown, persisted in `localStorage`.
-- **Mobile menu** with a hamburger that animates into an "X", a slide-in panel, and an overlay.
-- **Active navigation link** highlighting on scroll.
-- **Navbar scroll effect** (adds a shadow after scrolling past 50px).
-- **Section reveal animations** — content fades/slides in as it enters the viewport using an IntersectionObserver and a `.reveal` / `.visible` pattern.
-- **Hover transitions** on buttons, cards, skill tags, stat cards, timeline cards, certificate card, project cards, and social icons.
-- **Button and card hover effects** (lift + glow).
-- **Blue glow effects** used across interactive and decorative elements.
-- A slow **spinning decorative ring** around the hero image and a **pulsing status dot** in the hero badge.
+directory.
 
-## Project Status
+---
 
-The portfolio is a **complete, functional static implementation**. It contains all main sections (Home, About, Education & Certifications, Projects, Contact) with a custom black-and-blue theme, theme/mode customization, responsive layout, and scroll animations. Portfolio content is currently hardcoded in the Blade views rather than stored in a database, and content on this static site is not editable from a backend admin interface.
+# ✏️ Customization
+
+Most portfolio information can be edited directly from:
+
+```text
+resources/views/home.blade.php
+```
+
+### Content Locations
+
+| Content       | File / Section                |
+| ------------- | ----------------------------- |
+| Name & Hero   | `home.blade.php`              |
+| About Me      | `home.blade.php`              |
+| Skills        | `.skills-grid`                |
+| Statistics    | `.stats-row`                  |
+| Education     | `.edu-timeline`               |
+| Certification | `.cert-card`                  |
+| Projects      | `.project-card`               |
+| Contact       | `.contact-grid`               |
+| Footer        | `components/footer.blade.php` |
+| Navigation    | `components/navbar.blade.php` |
+| Images        | `public/images/`              |
+| Styling       | `resources/css/app.css`       |
+| JavaScript    | `resources/js/app.js`         |
+
+After modifying CSS or JavaScript, rebuild the frontend assets:
+
+```bash
+npm run build
+```
+
+---
+
+# 📱 Responsive Design
+
+The portfolio is designed to work across:
+
+* 📱 Mobile phones
+* 📲 Tablets
+* 💻 Laptops
+* 🖥️ Desktop monitors
+
+### Breakpoints
+
+**992px and below**
+
+* Columns collapse
+* Hero layout adjusts
+* About section becomes single-column
+* Education layout stacks
+* Project cards adapt
+* Contact layout adjusts
+
+**768px and below**
+
+* Desktop navigation changes to hamburger menu
+* Mobile navigation panel appears
+* Layout spacing is reduced
+* Content becomes optimized for smaller screens
+
+The design also uses fluid sizing through CSS `clamp()`.
+
+---
+
+# ✨ Animations & Interactions
+
+Interactive behavior is implemented using:
+
+```text
+resources/js/app.js
+resources/css/app.css
+```
+
+### Features
+
+* Smooth scrolling
+* Dark/light mode
+* Accent color switcher
+* Mobile navigation
+* Animated hamburger menu
+* Active navigation highlighting
+* Navbar scroll shadow
+* IntersectionObserver reveal animations
+* Card hover effects
+* Button hover effects
+* Skill tag animations
+* Timeline animations
+* Certificate hover effects
+* Social icon transitions
+* Blue glow effects
+* Hero ring rotation
+* Pulsing availability indicator
+
+---
+
+# 📊 Project Status
+
+**Status: ✅ Complete**
+
+The portfolio currently includes:
+
+* ✅ Home
+* ✅ About Me
+* ✅ Education
+* ✅ Certification
+* ✅ Projects
+* ✅ Contact
+* ✅ Footer
+* ✅ Responsive design
+* ✅ Dark/light mode
+* ✅ Accent color customization
+* ✅ Scroll animations
+* ✅ Interactive navigation
+* ✅ Custom visual design
+
+The portfolio is intentionally implemented as a **static Laravel website**, with content stored directly in Blade views rather than a database or admin panel.
+
+---
+
+## 👩‍💻 Author
+
+**Dimple Kate B. Bodonia**
+
+Bachelor of Science in Information Technology
+Data Center College of the Philippines
+
+---
+
+⭐ **Thank you for visiting my portfolio!**
