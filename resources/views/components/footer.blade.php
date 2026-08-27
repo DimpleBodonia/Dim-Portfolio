@@ -65,7 +65,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; {{ date('Y') }} DevPortfolio. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} DimPortfolio. All rights reserved.</p>
         </div>
     </div>
 </footer>
